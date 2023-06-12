@@ -68,7 +68,7 @@ calculateServer <- function(id){
                           if (!identical(result, NA)){
                               updateTextInput(session = session, inputId = "deviationDa",
                                               value = ifelse(abs(result) != Inf,
-                                                             BBPersonalR::formatDigits(digits = as.integer(input$accuracyDa))(result),
+                                                             formatDigits(digits = as.integer(input$accuracyDa))(result),
                                                              ""))
                           } else {
                             updateTextInput(session = session, inputId = "deviationDa", value = "")
@@ -77,7 +77,7 @@ calculateServer <- function(id){
                           if (!identical(result, NA)){
                             updateTextInput(session = session, inputId = "deviationPPM",
                                             value = ifelse(abs(result) != Inf,
-                                                           BBPersonalR::formatDigits(digits = as.integer(input$accuracyPPM))(result),
+                                                           formatDigits(digits = as.integer(input$accuracyPPM))(result),
                                                            ""))
                           } else {
                             updateTextInput(session = session, inputId = "deviationPPM", value = "")

@@ -17,7 +17,6 @@ library(dplyr)
 library(purrr)
 library(kableExtra)
 library(massSpectrometryR)
-library(BBPersonalR)
 
 source("R/tools.R")
 
@@ -92,9 +91,9 @@ generalInfoTable <- data.frame(parameter =  c("Name","CAS","PubChem ID","Formula
                                          ifelse(identical(info$MolecularFormula, NA),
                                                 "", formulaString(stringToFormula(info$MolecularFormula), useMarkdown = T)),
                                          ifelse(identical(info$MolecularFormula, NA),
-                                                "", stringToFormula(info$MolecularFormula) %>% formulaToMass(enviPat = TRUE) %>% BBPersonalR::formatDigits(4)()),
+                                                "", stringToFormula(info$MolecularFormula) %>% formulaToMass(enviPat = TRUE) %>% formatDigits(4)()),
                                          ifelse(identical(info$MolecularFormula, NA),
-                                                "", stringToFormula(info$MolecularFormula) %>% formulaToMass(enviPat = TRUE, exact = FALSE) %>% BBPersonalR::formatDigits(4)()),
+                                                "", stringToFormula(info$MolecularFormula) %>% formulaToMass(enviPat = TRUE, exact = FALSE) %>% formatDigits(4)()),
                                          ifelse(identical(info$smiles, NA),
                                                 "", info$smiles)))
 gt(generalInfoTable)  %>%

@@ -3,9 +3,30 @@ library(enviPat)
 library(stringr)
 library(massSpectrometryR)
 library(gt)
-library(BBPersonalR)
 library(dplyr)
 library(purrr)
+
+formatDigits <- function(digits){
+  function(v){
+    return(scales::comma(v, accuracy = 10^(-digits)))
+  }
+}
+
+ifelseProper <- function(logicValue = NULL, ifTrue = NULL, ifFalse = NULL){
+  if (missing(logicValue)){
+    return(NULL)
+  } else {
+    if (!is.logical(logicValue)){
+      return(NULL)
+    } else {
+      if (logicValue){
+        return(ifTrue)
+      } else {
+        return(ifFalse)
+      }
+    }
+  }
+}
 
 str_replace_allMulti <- function(string, patterns, replacements = ""){
   if (length(replacements) == 1){
@@ -80,9 +101,9 @@ generateIsotopePattern <- function(chemicalFormula,
                                    threshold = 0.1){
   data(isotopes, envir = environment(), package = "enviPat")
   if (!is.na(adduct)){
-    chemicalFormula <- BBPersonalR::ifelseProper(addAdduct,
-                                                 stringToFormula(chemicalFormula) %f+% (charge*stringToFormula(adduct)),
-                                                 stringToFormula(chemicalFormula) %f-% (charge*stringToFormula(adduct)))
+    chemicalFormula <- ifelseProper(addAdduct,
+                                    stringToFormula(chemicalFormula) %f+% (charge*stringToFormula(adduct)),
+                                    stringToFormula(chemicalFormula) %f-% (charge*stringToFormula(adduct)))
   } else {
     chemicalFormula <- stringToFormula(chemicalFormula)
   }

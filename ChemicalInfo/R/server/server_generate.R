@@ -31,9 +31,9 @@ observeEvent(input$generate, {
                                                        "",
                                                        formulaString(stringToFormula(pubchemInfo$pubchem$MolecularFormula), useMarkdown = T)),
                                                 ifelse(identical(pubchemInfo$pubchem, NA),
-                                                       "", stringToFormula(pubchemInfo$pubchem$MolecularFormula) %>% formulaToMass(enviPat = TRUE) %>% BBPersonalR::formatDigits(4)()),
+                                                       "", stringToFormula(pubchemInfo$pubchem$MolecularFormula) %>% formulaToMass(enviPat = TRUE) %>% formatDigits(4)()),
                                                 ifelse(identical(pubchemInfo$pubchem, NA),
-                                                       "", stringToFormula(pubchemInfo$pubchem$MolecularFormula) %>% formulaToMass(enviPat = TRUE, exact = FALSE) %>% BBPersonalR::formatDigits(4)()),
+                                                       "", stringToFormula(pubchemInfo$pubchem$MolecularFormula) %>% formulaToMass(enviPat = TRUE, exact = FALSE) %>% formatDigits(4)()),
                                                 ifelse(identical(pubchemInfo$pubchem, NA),
                                                        "", pubchemInfo$pubchem$CanonicalSMILES)))
     rv$smiles <- pubchemInfo$pubchem$CanonicalSMILES
@@ -60,9 +60,9 @@ observeEvent(input$generateManual, {
                                                 ifelse(identical(pubchemInfo$pubchem, NA),
                                                        "", formulaString(stringToFormula(pubchemInfo$pubchem$MolecularFormula), useMarkdown = T)),
                                                 ifelse(identical(pubchemInfo$pubchem, NA),
-                                                       "", stringToFormula(pubchemInfo$pubchem$MolecularFormula) %>% formulaToMass(enviPat = TRUE) %>% BBPersonalR::formatDigits(4)()),
+                                                       "", stringToFormula(pubchemInfo$pubchem$MolecularFormula) %>% formulaToMass(enviPat = TRUE) %>% formatDigits(4)()),
                                                 ifelse(identical(pubchemInfo$pubchem, NA),
-                                                       "", stringToFormula(pubchemInfo$pubchem$MolecularFormula) %>% formulaToMass(enviPat = TRUE, exact = FALSE) %>% BBPersonalR::formatDigits(4)()),
+                                                       "", stringToFormula(pubchemInfo$pubchem$MolecularFormula) %>% formulaToMass(enviPat = TRUE, exact = FALSE) %>% formatDigits(4)()),
                                                 ifelse(identical(pubchemInfo$pubchem, NA),
                                                        "", pubchemInfo$pubchem$CanonicalSMILES)))
     rv$smiles <- pubchemInfo$pubchem$CanonicalSMILES

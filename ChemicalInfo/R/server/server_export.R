@@ -32,8 +32,8 @@ output$toExcel <- downloadHandler(
                                                         resolution = isotopesX$resolution,
                                                         detect = "centroid",
                                                         threshold = isotopesX$threshold)[[1]])
-      isotopesX[,1] <- map_chr(isotopesX[,1], ~BBPersonalR::formatDigits(acc[1])(.x))
-      isotopesX[,2] <- map_chr(isotopesX[,2], ~BBPersonalR::formatDigits(acc[2])(.x))
+      isotopesX[,1] <- map_chr(isotopesX[,1], ~formatDigits(acc[1])(.x))
+      isotopesX[,2] <- map_chr(isotopesX[,2], ~formatDigits(acc[2])(.x))
     } else {
       isotopesX <- NA
     }
@@ -49,7 +49,7 @@ output$toExcel <- downloadHandler(
                                             exact = chargeStatesX$monoisotopic,
                                             adductCharge = ifelse(chargeStatesX$positive, +1, -1),
                                             useMarkdown = F)[,-c(2:4)]
-      chargeStatesX[,2] <- map_chr(chargeStatesX[,2], ~BBPersonalR::formatDigits(acc)(.x))
+      chargeStatesX[,2] <- map_chr(chargeStatesX[,2], ~formatDigits(acc)(.x))
     } else {
       chargeStatesX <- NA
     }
@@ -59,7 +59,7 @@ output$toExcel <- downloadHandler(
                                       createTable = adductsX,
                                       exact = input$adductsMonoisotopic,
                                       useMarkdown = T)[-c(2:6)]
-      adductsX[,2] <- map_chr(adductsX[,2], ~BBPersonalR::formatDigits(input$adductsAccuracy)(.x))
+      adductsX[,2] <- map_chr(adductsX[,2], ~formatDigits(input$adductsAccuracy)(.x))
     } else {
       adductsX <- NA
     }
