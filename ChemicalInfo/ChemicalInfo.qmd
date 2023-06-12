@@ -16,8 +16,8 @@ library(enviPat)
 library(dplyr)
 library(purrr)
 library(kableExtra)
-library(massSpectrometryR)
 
+source("R/massSpectrometry/chemistry.R")
 source("R/tools.R")
 
 ```
@@ -73,9 +73,6 @@ info$structure <- list(
 )
 
 # -----------------
-  
-
-additionalInfo <- info$additionalInfo
 
 ```
 

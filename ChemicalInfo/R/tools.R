@@ -1,10 +1,11 @@
 
 library(enviPat)
 library(stringr)
-library(massSpectrometryR)
 library(gt)
 library(dplyr)
 library(purrr)
+
+# ---- functions from package BBPersonalR ----
 
 formatDigits <- function(digits){
   function(v){
@@ -27,6 +28,8 @@ ifelseProper <- function(logicValue = NULL, ifTrue = NULL, ifFalse = NULL){
     }
   }
 }
+
+# ---- ----
 
 str_replace_allMulti <- function(string, patterns, replacements = ""){
   if (length(replacements) == 1){

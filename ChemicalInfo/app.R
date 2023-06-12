@@ -3,12 +3,12 @@ library(shinydashboard)
 library(shinyjs)
 library(rhandsontable)
 library(gt)
-library(massSpectrometryR)
 library(htmlwidgets)
 
 library(chemdoodle)
 
-purrr::walk(list.files("R/modules/", pattern = "R", full.names = T), ~source(.x))
+source("R/massSpectrometry/chemistry.R")
+purrr::walk(list.files("R/modules/", pattern = "*.R", full.names = T), ~source(.x))
 purrr::walk(list.files("R/", pattern = "*.R", full.names = T), ~source(.x))
 purrr::walk(list.files("R/ui/", pattern = "*.R", full.names = T, recursive = T), ~source(.x))
 

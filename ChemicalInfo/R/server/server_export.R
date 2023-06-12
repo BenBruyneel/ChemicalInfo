@@ -40,7 +40,7 @@ output$toExcel <- downloadHandler(
     if ((formulaX |> formulaString() != "") & !identical(chargeStatesX, NA)){
       acc <- chargeStatesX$mzAccuracy
       chargeStatesX <- generateChargeTables(aFormula = formulaX,
-                                            adductFormula = ifelseProper(chargeStateInfo$adduct == "H",
+                                            adductFormula = ifelseProper(chargeStatesX$adduct == "H",
                                                                          c(H=1),
                                                                          emptyFormula()),
                                             adductsNr = ifelseProper(chargeStatesX$positive,
@@ -54,7 +54,7 @@ output$toExcel <- downloadHandler(
       chargeStatesX <- NA
     }
     if ((formulaX |> formulaString() != "") & !identical(adductsX, NA)){
-      adductsInfoX$adductFormula <- map_chr(adductsX$adductFormula, ~removeAllbutLettersDigits(.x))
+      adductsX$adductFormula <- map_chr(adductsX$adductFormula, ~removeAllbutLettersDigits(.x))
       adductsX <- generateAdductTable(aFormula = formulaX,
                                       createTable = adductsX,
                                       exact = input$adductsMonoisotopic,
