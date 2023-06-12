@@ -4,7 +4,6 @@ library(shinyjs)
 library(rhandsontable)
 library(gt)
 library(htmlwidgets)
-
 library(chemdoodle)
 
 source("R/massSpectrometry/chemistry.R")
