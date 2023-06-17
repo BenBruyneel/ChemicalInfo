@@ -6,10 +6,13 @@ library(gt)
 library(htmlwidgets)
 library(chemdoodle)
 
+# have to include this source file due to not being able to use own library when deploying
 source("R/massSpectrometry/chemistry.R")
+
 purrr::walk(list.files("R/modules/", pattern = "*.R", full.names = T), ~source(.x))
 purrr::walk(list.files("R/", pattern = "*.R", full.names = T), ~source(.x))
 purrr::walk(list.files("R/ui/", pattern = "*.R", full.names = T, recursive = T), ~source(.x))
+
 
 ui <- fluidPage(
 
