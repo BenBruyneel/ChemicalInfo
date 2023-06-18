@@ -11,7 +11,7 @@ The application has been deployed on [shinyapps.io](https://www.shinyapps.io/) o
 
 The [quarto](https://quarto.org/) document 'ChemicalInfo.qmd' in the application directory is an example of how to use the application code for more 'static' documents (HTML/PDF/etc)
 
-A blog-post on the development and use can be found here: [massSpectrometryR manual](https://benbruyneel.github.io/massSpectrometryR/)
+A blog-post on the development and use can be found here: [Mass Spectrometry/ Chemical Info](https://here-and-there.nl/now-and-then/posts/chemical-info/)
 
 Work in progress!
 
