@@ -17,7 +17,7 @@ observeEvent(input$generate, {
     if (!("MolecularFormula" %in% colnames(pubchemInfo$pubchem))){
       pubchemInfo$pubchem$MolecularFormula = ""
     }
-    if (!("CanonicalSMILES" %in% colnames(pubchemInfo$pubchem))){
+    if (!("SMILES" %in% colnames(pubchemInfo$pubchem))){
       pubchemInfo$pubchem$CanonicalSMILES <- ""
     }
     rv$generalInfoTable <- data.frame(parameter = c("Name","CAS","PubChem ID","Formula","Exact Mass","Average Mass","Smiles"),
@@ -35,8 +35,8 @@ observeEvent(input$generate, {
                                                 ifelse(identical(pubchemInfo$pubchem, NA),
                                                        "", stringToFormula(pubchemInfo$pubchem$MolecularFormula) %>% formulaToMass(enviPat = TRUE, exact = FALSE) %>% formatDigits(4)()),
                                                 ifelse(identical(pubchemInfo$pubchem, NA),
-                                                       "", pubchemInfo$pubchem$CanonicalSMILES)))
-    rv$smiles <- pubchemInfo$pubchem$CanonicalSMILES
+                                                       "", pubchemInfo$pubchem$SMILES)))
+    rv$smiles <- pubchemInfo$pubchem$SMILES
     rv$additionalInfo <- getAdditionalInfo(id = pubchemInfo$pubchemID, additionalInfo = additionalWidget())
     shinyjs::enable("toExcel")
   }
